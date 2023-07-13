@@ -87,7 +87,8 @@ int main(int argc, char *argv[])
     //ладья и ладья
     case L'а':
         if ((firstHorizontal == horizontalField || firstVertical == verticalField )
-            && horizontalField != secondHorizontal && verticalField != secondVertical)
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical)
+                || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -97,7 +98,8 @@ int main(int argc, char *argv[])
     //ладья и ферзь
     case L'б':
         if ((firstHorizontal == horizontalField || firstVertical == verticalField )
-            && horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+                || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -107,7 +109,7 @@ int main(int argc, char *argv[])
     //ладья и конь;
     case L'в':
         if ((firstHorizontal == horizontalField || firstVertical == verticalField )
-            && !HorseCheck(movePosition, enemyPosition))
+            && (!HorseCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -117,7 +119,7 @@ int main(int argc, char *argv[])
     //ладья и слон;
     case L'г':
         if ((firstHorizontal == horizontalField || firstVertical == verticalField )
-            && !DiagonalCheck(movePosition, enemyPosition))
+            && (!DiagonalCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -127,7 +129,8 @@ int main(int argc, char *argv[])
     //ферзь и ферзь;
     case L'д':
         if ((firstHorizontal == horizontalField || firstVertical == verticalField || DiagonalCheck(myPosition, movePosition))
-            && horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+                || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -137,7 +140,8 @@ int main(int argc, char *argv[])
     //ферзь и ладья;
     case L'е':
         if ((firstHorizontal == horizontalField || firstVertical == verticalField || DiagonalCheck(myPosition, movePosition))
-            && horizontalField != secondHorizontal && verticalField != secondVertical)
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical)
+                 || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -147,7 +151,7 @@ int main(int argc, char *argv[])
     //ферзь и конь;
     case L'ж':
         if ((firstHorizontal == horizontalField || firstVertical == verticalField || DiagonalCheck(myPosition, movePosition))
-            && !HorseCheck(movePosition, enemyPosition))
+            && (!HorseCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -157,7 +161,7 @@ int main(int argc, char *argv[])
     //ферзь и слон;
     case L'з':
         if ((firstHorizontal == horizontalField || firstVertical == verticalField )
-            && !DiagonalCheck(movePosition, enemyPosition))
+            && (!DiagonalCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -167,7 +171,7 @@ int main(int argc, char *argv[])
     //конь и конь;
     case L'и':
         if (HorseCheck(myPosition, movePosition)
-            && !HorseCheck(movePosition, enemyPosition))
+            && (!HorseCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -177,7 +181,8 @@ int main(int argc, char *argv[])
     //конь и ладья;
     case L'к':
         if (HorseCheck(myPosition, movePosition)
-            && horizontalField != secondHorizontal && verticalField != secondVertical)
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical)
+                 || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -187,7 +192,8 @@ int main(int argc, char *argv[])
     //конь и ферзь;
     case L'л':
         if (HorseCheck(myPosition, movePosition)
-            && horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+                || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -197,7 +203,7 @@ int main(int argc, char *argv[])
     //конь и слон;
     case L'м':
         if (HorseCheck(myPosition, movePosition )
-            && !DiagonalCheck(movePosition, enemyPosition))
+            && (!DiagonalCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -207,7 +213,7 @@ int main(int argc, char *argv[])
     //слон и слон;
     case L'н':
         if (DiagonalCheck(myPosition, movePosition)
-            && !DiagonalCheck(movePosition, enemyPosition))
+            && (!DiagonalCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -217,7 +223,8 @@ int main(int argc, char *argv[])
     //слон и ферзь;
     case L'о':
         if (DiagonalCheck(myPosition, movePosition)
-            && horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+                || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -227,7 +234,7 @@ int main(int argc, char *argv[])
     //слон и конь;
     case L'п':
         if (DiagonalCheck(myPosition, movePosition)
-            && !HorseCheck(movePosition, enemyPosition))
+            && (!HorseCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -237,7 +244,8 @@ int main(int argc, char *argv[])
      //слон и ладья;
     case L'р':
         if (DiagonalCheck(myPosition, movePosition )
-            && horizontalField != secondHorizontal && verticalField != secondVertical)
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical)
+                || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -247,7 +255,7 @@ int main(int argc, char *argv[])
     //король и слон;
     case L'с':
         if (KingCheck(myPosition, movePosition)
-            && !DiagonalCheck(movePosition, enemyPosition))
+            && (!DiagonalCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -257,7 +265,8 @@ int main(int argc, char *argv[])
     //король и ферзь;
     case L'т':
         if (KingCheck(myPosition, movePosition)
-            && horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical && !DiagonalCheck(movePosition, enemyPosition))
+                || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -267,7 +276,7 @@ int main(int argc, char *argv[])
     //король и конь;
     case L'у':
         if (KingCheck(myPosition, movePosition)
-            && !HorseCheck(movePosition, enemyPosition))
+            && (!HorseCheck(movePosition, enemyPosition) || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -277,7 +286,8 @@ int main(int argc, char *argv[])
     //король и ладья.
     case L'ф':
         if (KingCheck(myPosition, movePosition )
-            && horizontalField != secondHorizontal && verticalField != secondVertical)
+            && ((horizontalField != secondHorizontal && verticalField != secondVertical)
+                || EqualPositionsCheck(movePosition, enemyPosition)))
     {
         std::cout << "Figure can move";
     } else
@@ -289,9 +299,6 @@ int main(int argc, char *argv[])
     }
 
   } else std::cout << "Wrong task number";
-
-
-
 
     return 0;
 }
