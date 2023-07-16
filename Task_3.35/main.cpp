@@ -26,13 +26,13 @@ bool DiagonalCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
 bool HorseCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
 {
   if ( ( myPosition[0] + 1 == enemyPosition[0] && myPosition[1] - 2 == enemyPosition[1] ) ||
-        ( myPosition[0] + 2 == enemyPosition[0] && myPosition[1] - 1 == enemyPosition[1] ) ||
-        ( myPosition[0] + 2 == enemyPosition[0] && myPosition[1] + 1 == enemyPosition[1] ) ||
-        ( myPosition[0] + 1 == enemyPosition[0] && myPosition[1] + 2 == enemyPosition[1] ) ||
-        ( myPosition[0] - 1 == enemyPosition[0] && myPosition[1] + 2 == enemyPosition[1] ) ||
-        ( myPosition[0] - 2 == enemyPosition[0] && myPosition[1] + 1 == enemyPosition[1] ) ||
-        ( myPosition[0] - 2 == enemyPosition[0] && myPosition[1] - 2 == enemyPosition[1] ) ||
-        ( myPosition[0] - 1 == enemyPosition[0] && myPosition[1] - 2 == enemyPosition[1] ) )
+       ( myPosition[0] + 2 == enemyPosition[0] && myPosition[1] - 1 == enemyPosition[1] ) ||
+       ( myPosition[0] + 2 == enemyPosition[0] && myPosition[1] + 1 == enemyPosition[1] ) ||
+       ( myPosition[0] + 1 == enemyPosition[0] && myPosition[1] + 2 == enemyPosition[1] ) ||
+       ( myPosition[0] - 1 == enemyPosition[0] && myPosition[1] + 2 == enemyPosition[1] ) ||
+       ( myPosition[0] - 2 == enemyPosition[0] && myPosition[1] + 1 == enemyPosition[1] ) ||
+       ( myPosition[0] - 2 == enemyPosition[0] && myPosition[1] - 1 == enemyPosition[1] ) ||
+       ( myPosition[0] - 1 == enemyPosition[0] && myPosition[1] - 2 == enemyPosition[1] ) )
     return 1;
   else return 0;
 }
@@ -40,9 +40,9 @@ bool HorseCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
 bool KingCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
 {
   if ( ( myPosition[0] - enemyPosition[0] == 1 || myPosition[0] - enemyPosition[0] == 0 ||
-          myPosition[0] - enemyPosition[0] == -1 ) &&
-        ( myPosition[1] - enemyPosition[1] == 1 || myPosition[1] - enemyPosition[1] == 0 ||
-          myPosition[1] - enemyPosition[1] == -1 ) )
+         myPosition[0] - enemyPosition[0] == -1 ) &&
+       ( myPosition[1] - enemyPosition[1] == 1 || myPosition[1] - enemyPosition[1] == 0 ||
+         myPosition[1] - enemyPosition[1] == -1 ) )
     return 1;
   else return 0;
 }
@@ -50,7 +50,7 @@ bool KingCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
 bool EqualPositionsCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
 {
   if ( ( myPosition[0] == enemyPosition[0] ) &&
-        ( myPosition[1] == enemyPosition[1] ) )
+       ( myPosition[1] == enemyPosition[1] ) )
     return 1;
   else return 0;
 }
