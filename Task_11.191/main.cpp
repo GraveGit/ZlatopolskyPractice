@@ -24,11 +24,14 @@ int main( int argc, char* argv[] )
     counter[element]++;
 
   for ( const auto& pair : counter )
+    std::cout << "Number " << pair.first << " is here " << pair.second << " times " << std::endl;
+
+  for ( const auto& pair : counter )
   {
-    if ( pair.second > 1 )
+    if ( pair.second >= 1 )
       numberCounter++;
   }
 
-  std::cout << "Number contains " << numberCounter << " repeating digit(s)";
+  std::cout << "Number contains " << numberCounter << " different digit(s)";
   return 0;
 }
