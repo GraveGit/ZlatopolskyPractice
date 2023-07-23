@@ -17,6 +17,7 @@ add_subdirectory(Task_13.52)
 add_subdirectory(Task_14.59)
 add_subdirectory(Task_15.29)
 add_subdirectory(Task_16.27)
+add_subdirectory(Task_17.24)
 
 add_custom_target(ProjectRelatedFiles SOURCES
     .gitignore
