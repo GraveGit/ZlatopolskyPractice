@@ -14,9 +14,12 @@ int main( int argc, char* argv[] )
   double cathet = 3;
   const double hypotenuse = 4.5;
 
-  for ( cathet; cathet < hypotenuse; cathet += 0.2 )
+  while ( cathet < hypotenuse )
+  {
     std::cout << "For cathet = " << cathet << " and hypothenuse = " << hypotenuse << " angle = " <<
               acos ( cathet / hypotenuse ) * 180.0 / PI << std::endl;
+    cathet += 0.2;
+  }
 
   return 0;
 }

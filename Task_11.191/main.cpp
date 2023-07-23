@@ -26,11 +26,11 @@ int main( int argc, char* argv[] )
   for ( const auto& pair : counter )
     std::cout << "Number " << pair.first << " is here " << pair.second << " times " << std::endl;
 
-  for ( const auto& pair : counter )
+  numberCounter = std::count_if( counter.begin(), counter.end(),
+                                 []( const auto & pair )
   {
-    if ( pair.second >= 1 )
-      numberCounter++;
-  }
+    return pair.second >= 1;
+  } );
 
   std::cout << "Number contains " << numberCounter << " different digit(s)";
   return 0;

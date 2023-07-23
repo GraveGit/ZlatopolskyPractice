@@ -5,7 +5,6 @@
 int main( int argc, char* argv[] )
 {
   int a = 0, b = 0;
-  double result = 0.0;
 
   std::cout << "Enter number a: ";
   std::cin >> a;

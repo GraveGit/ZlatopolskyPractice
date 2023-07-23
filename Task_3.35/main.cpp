@@ -13,7 +13,7 @@
 #include <iostream>
 #include <windows.h>
 
-bool DiagonalCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
+bool DiagonalCheck( const int ( &myPosition )[2], const int ( &enemyPosition )[2] )
 {
   if ( ( enemyPosition[0] - myPosition[0] == enemyPosition[1] - myPosition[1] ) ||
        ( myPosition[0] - enemyPosition[0] == enemyPosition[1] - myPosition[1] ) ||
@@ -23,7 +23,7 @@ bool DiagonalCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
   else return 0;
 }
 
-bool HorseCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
+bool HorseCheck( const int ( &myPosition )[2], const int ( &enemyPosition )[2] )
 {
   if ( ( myPosition[0] + 1 == enemyPosition[0] && myPosition[1] - 2 == enemyPosition[1] ) ||
        ( myPosition[0] + 2 == enemyPosition[0] && myPosition[1] - 1 == enemyPosition[1] ) ||
@@ -37,7 +37,7 @@ bool HorseCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
   else return 0;
 }
 
-bool KingCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
+bool KingCheck( const int ( &myPosition )[2], const int ( &enemyPosition )[2] )
 {
   if ( ( myPosition[0] - enemyPosition[0] == 1 || myPosition[0] - enemyPosition[0] == 0 ||
          myPosition[0] - enemyPosition[0] == -1 ) &&
@@ -47,7 +47,7 @@ bool KingCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
   else return 0;
 }
 
-bool EqualPositionsCheck( int ( &myPosition )[2], int ( &enemyPosition )[2] )
+bool EqualPositionsCheck( const int ( &myPosition )[2], const int ( &enemyPosition )[2] )
 {
   if ( ( myPosition[0] == enemyPosition[0] ) &&
        ( myPosition[1] == enemyPosition[1] ) )
@@ -61,8 +61,6 @@ int main( int argc, char* argv[] )
   SetConsoleCP( 1251 );
   setlocale( LC_ALL, "Russian" );
 
-  int firstHorizontal = 0, firstVertical = 0, secondHorizontal = 0, secondVertical = 0, horizontalField = 0,
-      verticalField = 0;
   wchar_t taskNumber;
 
   std::cout << "Enter the task number: ";
@@ -70,6 +68,9 @@ int main( int argc, char* argv[] )
 
   if ( taskNumber >= L'а' && taskNumber <= L'ф' )
   {
+    int firstHorizontal = 0, firstVertical = 0, secondHorizontal = 0, secondVertical = 0, horizontalField = 0,
+        verticalField = 0;
+
     std::cout << "Enter a: ";
     std::cin >> firstHorizontal;
     std::cout << "Enter b: ";

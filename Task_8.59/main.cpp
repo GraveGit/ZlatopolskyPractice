@@ -5,7 +5,7 @@
 
 int main( int argc, char* argv[] )
 {
-  int remains = 0;
+  int remains;
 
   for ( int denominator = 1; denominator <= 7; denominator++ ) //Знаменатель
   {
