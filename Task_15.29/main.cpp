@@ -7,8 +7,8 @@ int main( int argc, char* argv[] )
 {
   int i = 1;
   std::ifstream firstText( "first.txt" );
-  std::ofstream secondText( "D:/ZlatopolskyPractice/Tasks/Task_15.29/second.txt" );
-  std::ofstream thirdText( "D:/ZlatopolskyPractice/Tasks/Task_15.29/third.txt" );
+  std::ofstream secondText( "../Task_15.29/second.txt" );
+  std::ofstream thirdText( "../Task_15.29/third.txt" );
   std::string textString;
 
   while ( !firstText.eof() )
@@ -18,10 +18,11 @@ int main( int argc, char* argv[] )
 
     if ( i % 2 == 0 )
       secondText << textString << std::endl;
+
     else
       thirdText << textString << std::endl;
 
-    i++;
+    ++i;
   }
 
   firstText.close();

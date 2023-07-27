@@ -2,36 +2,21 @@
 // Например, в числе 1234 количество различных цифр равно 4, в числе
 // 22424 — 2, в числе 333 — 1.
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <unordered_map>
+#include <set>
 
 int main( int argc, char* argv[] )
 {
-  int number = 0, numberCounter = 0;
-  std::vector<int> numberArray;
+  int number = 0;
+  std::set<int> numberArray;
   std::cout << "Enter the number: ";
   std::cin >> number;
-  std::unordered_map<int, int> counter;
 
   while ( number > 0 )
   {
-    numberArray.push_back( number % 10 );
+    numberArray.insert( number % 10 );
     number /= 10;
   }
 
-  for ( const auto& element : numberArray )
-    counter[element]++;
-
-  for ( const auto& pair : counter )
-    std::cout << "Number " << pair.first << " is here " << pair.second << " times " << std::endl;
-
-  numberCounter = std::count_if( counter.begin(), counter.end(),
-                                 []( const auto & pair )
-  {
-    return pair.second >= 1;
-  } );
-
-  std::cout << "Number contains " << numberCounter << " different digit(s)";
+  std::cout << "Number contains " << numberArray.size() << " different digit(s)";
   return 0;
 }
